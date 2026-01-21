@@ -69,6 +69,7 @@ const AdminDashboard = () => {
       </div>
 
       {/* Task List */}
+      <h2 className="py-2 fw-semibold">Tasks</h2>
       <div className="row g-3">
         {tasks.length === 0 ? (
           <div className="text-center py-5 text-muted">

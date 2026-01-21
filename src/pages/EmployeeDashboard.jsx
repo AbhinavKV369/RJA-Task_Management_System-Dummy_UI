@@ -74,29 +74,42 @@ const EmployeeDashboard = () => {
       {myTasks.length === 0 ? (
         <div className="text-center py-5 text-muted">No tasks assigned yet</div>
       ) : (
-        <div className="row g-3">
+        <div className="row g-4">
           {myTasks.map((task) => (
             <div className="col-12 col-md-6 col-lg-4" key={task.id}>
-              <div className="card shadow-sm border-0 rounded-4 h-100 hover-shadow">
-                <div className="card-body d-flex flex-column justify-content-between">
-                  <div>
-                    <h3 className="fw-semibold mb-2">{task.title}</h3>
-                    <h6 className=" my-3 fw-normal">{task.description}</h6>
-                    <div className="d-flex flex-wrap gap-2 mb-2">
-                      <span className={priorityBadge(task.priority)}>
-                        {task.priority}
-                      </span>
-                      <span className={statusBadge(task.status)}>
-                        {task.status}
-                      </span>
-                      <span className="text-muted small">
-                        Due: {task.dueDate}
-                      </span>
-                    </div>
+              <div className="card task-card border-0 rounded-4 h-100">
+                <div className="card-body d-flex flex-column">
+                  {/* Title */}
+                  <h5 className="fw-bold mb-1">{task.title}</h5>
+
+                  {/* Description */}
+                  <p className="text-muted small mb-3">{task.description}</p>
+
+                  {/* Badges */}
+                  <div className="d-flex flex-wrap gap-2 mb-3">
+                    <span
+                      className={`badge rounded-pill px-3 py-2 ${priorityBadge(task.priority)}`}>
+                      {task.priority}
+                    </span>
+
+                    <span
+                      className={`badge rounded-pill px-3 py-2 ${statusBadge(task.status)}`}>
+                      {task.status}
+                    </span>
                   </div>
-                  <div className="mt-2">
+
+                  {/* Due Date */}
+                  <small className="text-muted mb-3">
+                    📅 Due: <strong>{task.dueDate}</strong>
+                  </small>
+
+                  {/* Status Update */}
+                  <div className="mt-auto">
+                    <label className="form-label small text-muted mb-1">
+                      Update Status
+                    </label>
                     <select
-                      className="form-select form-select-sm"
+                      className="form-select form-select-sm rounded-3"
                       value={task.status}
                       onChange={(e) => updateStatus(task.id, e.target.value)}>
                       <option>Pending</option>

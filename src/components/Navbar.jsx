@@ -4,10 +4,10 @@ import { useAuth } from "../context/auth/useAuth";
 
 const Navbar = () => {
   const location = useLocation();
-  const {user} = useAuth();
+  const {user,logout} = useAuth();
 
   const navLinks = [
-    { name: "Dashboard", path: "/admin" },
+    { name: "Dashboard", path: "#" },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -79,8 +79,7 @@ const Navbar = () => {
                 padding: "0.35rem 0.75rem",
                 transition: "all 0.3s",
               }}
-              onMouseEnter={(e) => (e.target.style.opacity = 0.85)}
-              onMouseLeave={(e) => (e.target.style.opacity = 1)}>
+              onClick={logout}>
               Logout
             </button>
           </div>

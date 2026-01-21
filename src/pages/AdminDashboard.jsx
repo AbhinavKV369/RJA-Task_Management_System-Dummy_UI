@@ -74,50 +74,55 @@ const AdminDashboard = () => {
         ) : (
           tasks.map((task) => (
             <div className="col-12 col-md-6 col-lg-4" key={task.id}>
-              <div className="card shadow-sm border-0 rounded-4 h-100 hover-shadow">
-                <div className="card-body d-flex flex-column justify-content-between">
-                  <div>
-                    <h6 className="fw-semibold mb-2">{task.title}</h6>
-                    <h9 className=" mb-2">{task.description}</h9>
+              <div className="card border-0 shadow-sm rounded-4 h-100 task-card">
+                <div className="card-body d-flex flex-column">
+                  {/* Title */}
+                  <h5 className="fw-bold mb-1">{task.title}</h5>
 
-                    <div className="d-flex flex-wrap gap-2 mb-2">
-                      <span
-                        className={`badge ${
-                          task.priority === "High"
-                            ? "bg-danger"
-                            : task.priority === "Medium"
-                              ? "bg-warning text-dark"
-                              : "bg-info text-dark"
-                        }`}>
-                        {task.priority}
-                      </span>
-                      <span
-                        className={`badge ${
-                          task.status === "Completed"
-                            ? "bg-success"
-                            : task.status === "In Progress"
-                              ? "bg-warning text-dark"
-                              : "bg-secondary"
-                        }`}>
-                        {task.status}
-                      </span>
-                      <span className="text-muted small">
-                        Due: {task.dueDate}
-                      </span>
-                    </div>
+                  {/* Description */}
+                  <p className="text-muted small mb-3">{task.description}</p>
+
+                  {/* Badges */}
+                  <div className="d-flex flex-wrap gap-2 mb-3">
+                    <span
+                      className={`badge rounded-pill px-3 py-2 ${
+                        task.priority === "High"
+                          ? "bg-danger-subtle text-danger"
+                          : task.priority === "Medium"
+                            ? "bg-warning-subtle text-warning"
+                            : "bg-info-subtle text-info"
+                      }`}>
+                      {task.priority}
+                    </span>
+
+                    <span
+                      className={`badge rounded-pill px-3 py-2 ${
+                        task.status === "Completed"
+                          ? "bg-success-subtle text-success"
+                          : task.status === "In Progress"
+                            ? "bg-warning-subtle text-warning"
+                            : "bg-secondary-subtle text-secondary"
+                      }`}>
+                      {task.status}
+                    </span>
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="mt-2 d-flex gap-2">
+                  {/* Due Date */}
+                  <small className="text-muted mb-3">
+                    📅 Due: {task.dueDate}
+                  </small>
+
+                  {/* Actions */}
+                  <div className="mt-auto d-flex gap-2">
                     <button
-                      className="btn btn-sm btn-primary flex-grow-1"
+                      className="btn btn-outline-primary btn-sm flex-grow-1"
                       onClick={() => handleEdit(task)}>
-                      Edit
+                      ✏️ Edit
                     </button>
                     <button
-                      className="btn btn-sm btn-danger flex-grow-1"
+                      className="btn btn-outline-danger btn-sm flex-grow-1"
                       onClick={() => deleteTask(task.id)}>
-                      Delete
+                      🗑 Delete
                     </button>
                   </div>
                 </div>

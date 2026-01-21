@@ -7,7 +7,8 @@ const Navbar = () => {
   const {user,logout} = useAuth();
 
   const navLinks = [
-    { name: "Dashboard", path: "#" },
+    user?.role === "admin" ?
+    { name: "Dashboard", path: "#" }:{},
   ];
 
   const isActive = (path) => location.pathname === path;

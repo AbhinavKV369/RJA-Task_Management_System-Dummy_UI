@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import TaskForm from "../components/TaskForm";
 import { useTask } from "../context/task/useTask";
+import TaskStatus from "../components/TaskStatus";
 
 const AdminDashboard = () => {
   const { tasks, setTasks } = useTask();
@@ -43,6 +44,8 @@ const AdminDashboard = () => {
           Manage tasks and assignments efficiently
         </p>
       </div>
+
+      <TaskStatus/>
 
       {/* Task Form Card */}
       <div className="card shadow-sm rounded-4 mb-4 border-0">

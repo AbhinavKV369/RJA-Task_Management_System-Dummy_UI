@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
         {/* Left side */}
         <span className="small">
-          &copy; {new Date().getFullYear()} MyCompany. All rights reserved.
+          &copy; {new Date().getFullYear()} Task Dashboard. All rights reserved.
         </span>
 
         {/* Right side links */}

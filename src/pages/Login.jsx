@@ -19,28 +19,19 @@ const Login = () => {
       return;
     }
 
-    setError("");
     navigate(user?.role === "admin" ? "/admin" : "/employee");
   };
 
   return (
-    <div
-      className="min-vh-100 d-flex align-items-center justify-content-center"
-      style={{
-        background: "linear-gradient(135deg, #1e3a8a, #0ea5e9)",
-      }}>
+    <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light">
       <div
-        className="card shadow-lg border-0 rounded-4"
-        style={{
-          width: "90%",
-          maxWidth: "380px",
-          background: "#f8fafc", // Light card background
-        }}>
+        className="card shadow-lg border-0 rounded-4 w-100"
+        style={{ maxWidth: "380px" }}>
         <div className="card-body p-4">
           {/* Header */}
           <div className="text-center mb-4">
-            <h3 className="fw-bold mb-1 text-dark">Welcome Back</h3>
-            <p className="text-muted small mb-0">Sign in to continue</p>
+            <h3 className="fw-bold text-primary mb-1">Task Dashboard</h3>
+            <p className="text-muted small mb-0">Sign in to your dashboard</p>
           </div>
 
           {/* Error */}
@@ -58,7 +49,7 @@ const Login = () => {
               </label>
               <input
                 type="email"
-                className="form-control form-control-lg bg-white text-dark border-0 shadow-sm"
+                className="form-control form-control-lg"
                 placeholder="admin@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -71,7 +62,7 @@ const Login = () => {
               <label className="form-label small text-muted">Password</label>
               <input
                 type="password"
-                className="form-control form-control-lg bg-white text-dark border-0 shadow-sm"
+                className="form-control form-control-lg"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -81,38 +72,18 @@ const Login = () => {
 
             <button
               type="submit"
-              className="btn btn-gradient btn-lg w-100 fw-semibold text-white"
-              style={{
-                background: "linear-gradient(90deg, #0ea5e9, #2563eb)",
-                border: "none",
-                transition: "all 0.3s",
-              }}
-              onMouseEnter={(e) =>
-                (e.target.style.background =
-                  "linear-gradient(90deg, #2563eb, #0ea5e9)")
-              }
-              onMouseLeave={(e) =>
-                (e.target.style.background =
-                  "linear-gradient(90deg, #0ea5e9, #2563eb)")
-              }>
+              className="btn btn-primary btn-lg w-100 fw-semibold">
               Sign In
             </button>
           </form>
 
           {/* Demo Credentials */}
-          <div
-            className="mt-4 p-3 rounded text-dark"
-            style={{
-              background: "#e0f2fe",
-              border: "1px solid #60a5fa",
-            }}>
-            <p className="mb-1 small text-center font-semibold">
-              Demo Credentials
-            </p>
-            <p className="mb-1 small text-center">
+          <div className="mt-4 p-3 bg-light border rounded text-center">
+            <p className="small fw-semibold mb-1">Demo Credentials</p>
+            <p className="small mb-1">
               <strong>Admin:</strong> admin@gmail.com / admin123
             </p>
-            <p className="mb-0 small text-center">
+            <p className="small mb-0">
               <strong>Employee:</strong> employee@gmail.com / emp123
             </p>
           </div>
